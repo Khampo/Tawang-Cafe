@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Tawang Cafe</title>
+
+  <meta name="theme-color" content="#0f0f0f" />
+  <meta name="description" content="Premium coffee, snacks and desserts delivered fresh." />
+
+  <link rel="manifest" href="manifest.json">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;700&display=swap" rel="stylesheet">
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <!-- Loading Screen -->
+  <div id="loadingScreen" class="loading-screen">
+    <div class="loading-logo">
+      <i data-lucide="coffee"></i>
+      <h1>Tawang Cafe</h1>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+
+    <div class="logo-area">
+      <div class="logo-icon">
+        <i data-lucide="coffee"></i>
+      </div>
+
+      <div>
+        <h1>Tawang Cafe</h1>
+        <p>Luxury Coffee Experience</p>
+      </div>
+    </div>
+
+    <button class="icon-btn">
+      <i data-lucide="bell"></i>
+    </button>
+
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+
+    <div class="hero-overlay"></div>
+
+    <img
+      src="assets/hero-banner.jpg"
+      alt="Cafe Banner"
+      class="hero-image"
+    >
+
+    <div class="hero-content">
+
+      <span class="premium-badge">
+        Premium Cafe
+      </span>
+
+      <h2>
+        Crafted Coffee.<br>
+        Delivered Fresh.
+      </h2>
+
+      <p>
+        Specialty coffee, cakes, tea and snacks
+        delivered across Tawang.
+      </p>
+
+      <div class="hero-meta">
+
+        <div class="meta-item">
+          ⭐ 4.9
+        </div>
+
+        <div class="meta-item">
+          ⏱ 25-35 min
+        </div>
+
+        <div class="meta-item">
+          🚚 Delivery
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Main -->
+  <main class="container">
+
+    <!-- Search -->
+    <section class="search-section">
+
+      <div class="search-box">
+        <i data-lucide="search"></i>
+
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search coffee, tea, desserts..."
+        >
+      </div>
+
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+
+      <button class="category active" data-category="All">
+        All
+      </button>
+
+      <button class="category" data-category="Coffee">
+        Coffee
+      </button>
+
+      <button class="category" data-category="Tea">
+        Tea
+      </button>
+
+      <button class="category" data-category="Snacks">
+        Snacks
+      </button>
+
+      <button class="category" data-category="Desserts">
+        Desserts
+      </button>
+
+      <button class="category" data-category="Cake">
+        Cakes
+      </button>
+
+    </section>
+
+    <!-- Featured -->
+    <section class="featured-section">
+
+      <div class="section-title">
+        <h3>Popular Today</h3>
+        <a href="#">View All</a>
+      </div>
+
+      <div class="featured-slider">
+
+        <div class="featured-card">
+
+          <img
+            src="assets/placeholder-food.jpg"
+            alt="Featured Item"
+          >
+
+          <div class="featured-content">
+            <span>Bestseller</span>
+            <h4>Signature Cappuccino</h4>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- Menu -->
+    <section>
+
+      <div class="section-title">
+        <h3>Menu</h3>
+      </div>
+
+      <div id="menuGrid" class="menu-grid">
+
+        <!-- Firebase menu loads here -->
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Floating Cart -->
+  <button id="floatingCart" class="floating-cart hidden">
+
+    <div>
+      <span id="cartItemCount">0 Items</span>
+      <strong id="cartTotalAmount">₹0</strong>
+    </div>
+
+    <div class="cart-arrow">
+      <i data-lucide="arrow-right"></i>
+    </div>
+
+  </button>
+
+  <!-- Cart Drawer -->
+  <div id="cartDrawer" class="cart-drawer">
+
+    <div class="drawer-header">
+
+      <h3>Your Order</h3>
+
+      <button id="closeCart">
+        <i data-lucide="x"></i>
+      </button>
+
+    </div>
+
+    <div id="cartItems" class="cart-items">
+
+      <!-- cart items -->
+
+    </div>
+
+    <div class="drawer-footer">
+
+      <div class="bill-row">
+        <span>Subtotal</span>
+        <strong id="subtotalAmount">
+          ₹0
+        </strong>
+      </div>
+
+      <div class="bill-row">
+        <span>Delivery Fee</span>
+        <strong>
+          ₹40
+        </strong>
+      </div>
+
+      <div class="bill-row total-row">
+        <span>Total</span>
+
+        <strong id="grandTotalAmount">
+          ₹0
+        </strong>
+      </div>
+
+      <button
+        id="checkoutBtn"
+        class="checkout-btn"
+      >
+        Proceed To Checkout
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- Overlay -->
+  <div id="overlay" class="overlay"></div>
+
+  <!-- Checkout Modal -->
+  <div id="checkoutModal" class="checkout-modal">
+
+    <div class="checkout-content">
+
+      <div class="checkout-header">
+
+        <h3>Delivery Details</h3>
+
+        <button id="closeCheckout">
+          <i data-lucide="x"></i>
+        </button>
+
+      </div>
+
+      <form id="checkoutForm">
+
+        <div class="form-group">
+          <label>Name</label>
+
+          <input
+            type="text"
+            id="customerName"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label>Phone</label>
+
+          <input
+            type="tel"
+            id="customerPhone"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label>Address</label>
+
+          <textarea
+            id="customerAddress"
+            required
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          class="checkout-btn"
+        >
+          Continue To Payment
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+  <!-- Payment Screen -->
+  <section id="paymentScreen" class="payment-screen hidden">
+
+    <div class="payment-card">
+
+      <span class="payment-tag">
+        Secure UPI Payment
+      </span>
+
+      <h2>
+        ₹<span id="paymentAmount">
+          0
+        </span>
+      </h2>
+
+      <img
+        id="paymentQr"
+        src=""
+        alt="UPI QR"
+        class="payment-qr"
+      >
+
+      <div class="upi-box">
+
+        <div>
+          <small>UPI ID</small>
+
+          <p>
+            geliriba11@oksbi
+          </p>
+        </div>
+
+        <button id="copyUpiBtn">
+          Copy
+        </button>
+
+      </div>
+
+      <p class="payment-note">
+        Scan and pay using any UPI app.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- Order Tracking -->
+  <section
+    id="trackingScreen"
+    class="tracking-screen hidden"
+  >
+
+    <div class="tracking-card">
+
+      <h2>Order Tracking</h2>
+
+      <p id="trackingOrderId">
+        Order #0000
+      </p>
+
+      <div class="tracking-steps">
+
+        <div class="track-step active">
+          Order Placed
+        </div>
+
+        <div class="track-step">
+          Accepted
+        </div>
+
+        <div class="track-step">
+          Preparing
+        </div>
+
+        <div class="track-step">
+          Out For Delivery
+        </div>
+
+        <div class="track-step">
+          Delivered
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Toast -->
+  <div id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="js/firebase.js" type="module"></script>
+  <script src="js/cart.js" type="module"></script>
+  <script src="js/ui.js" type="module"></script>
+  <script src="js/app.js" type="module"></script>
+
+  <script>
+    lucide.createIcons();
+
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js");
+      });
+    }
+  </script>
+
+</body>
+</html>
